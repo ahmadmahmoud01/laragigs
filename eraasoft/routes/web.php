@@ -16,10 +16,32 @@ use App\Models\listing;
 |
 */
 
+// all list
+
 Route::get('/', [ListingController::class, 'index']);
 
 
+// Create a listing form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// Store listing
+Route::post('/listings', [ListingController::class, 'store']);
+
+
+
+
+
+// single list
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
+
+
+
+
+
+
+
 
 // Route::get('/search', function(Request $request){
 //     return 'hello my name is ' . $request->name . ' and iam from ' . $request->city;

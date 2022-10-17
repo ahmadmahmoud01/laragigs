@@ -58,10 +58,16 @@
     @endforeach
 @else
 
-    <p>No Lisings Found</p>
+    <p>No Listings Found</p>
 
 @endunless
- </div>
+
+
+</div>
+{{-- Pagination --}}
+<div class="mt-6 p-4">
+    {{$listings->links()}}
+</div>
     
 @endsection
 
