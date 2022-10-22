@@ -41,8 +41,46 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
+        $formfields['user_id'] = auth()->id();
+
         Listing::create($formfields);
 
         return redirect('/')->with('message', 'Listing Created Successfully!');
+    }
+
+    // Edit Listing
+
+    public function edit(Listing $listing) {
+        return view('listings.edit', [
+            'listing' => $listing
+        ]);
+    }
+
+    // Update Listing
+
+    public function update(Request $request, Listing $listing) {
+
+        $formfields = $request->validate([
+            'company' => 'required',
+            'title' => 'required',
+            'location' => 'required',
+            'email' => 'required|email',
+            'website' => 'required',
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+
+        $listing->update($formfields);
+
+        return redirect('/')->with('message', 'Listing Updated Successfully!');
+
+    }
+
+    //Delete Listing
+
+    public function delete(Listing $listing) {
+        $listing->delete();
+
+        return redirect('/')->with('message', 'Listing Deleted Successfully!');
     }
 }

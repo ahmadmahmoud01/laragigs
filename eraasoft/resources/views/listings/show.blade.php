@@ -3,7 +3,7 @@
 @section('content')
 @include('partials._hero')
 {{-- @include('partials._search') --}}
-    
+
 <a href="/" class="inline-block text-black ml-4 mb-4"
 ><i class="fa-solid fa-arrow-left"></i> Back
 </a>
@@ -66,6 +66,18 @@
                     class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
                     ><i class="fa-solid fa-globe"></i> Visit
                     Website</a
+                >
+                <a
+                    href="/listings/{{$listing->id}}/edit"
+                    target=""
+                    class="block bg-white text-black py-2 rounded-xl hover:opacity-80"
+                    ><i class="fa-solid fa-pencil"></i> Edit</a
+                >
+                <a
+                    href="/listings/{{$listing->id}}/delete"
+                    target=""
+                    class="block bg-white text-black py-2 rounded-xl hover:opacity-80"
+                    ><i class="fa-solid fa-trash"></i> Delete</a
                 >
             </div>
         </div>
